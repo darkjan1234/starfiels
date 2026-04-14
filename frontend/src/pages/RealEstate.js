@@ -24,32 +24,36 @@ const RealEstate = () => {
   });
 
   useEffect(() => {
+    const fetchProperties = async () => {
+      setLoading(true);
+      try {
+        const params = new URLSearchParams();
+        if (filters.search) params.set('search', filters.search);
+        if (filters.listingType) params.set('listingType', filters.listingType);
+        if (filters.minPrice) params.set('minPrice', filters.minPrice);
+        if (filters.maxPrice) params.set('maxPrice', filters.maxPrice);
+        if (filters.bedrooms) params.set('bedrooms', filters.bedrooms);
+        if (filters.bathrooms) params.set('bathrooms', filters.bathrooms);
+        if (filters.region) params.set('region', filters.region);
+        
+        params.set('page', pagination.page);
+        params.set('limit', 12);
+        
+        const response = await api.get(`/properties?${params.toString()}`);
+        setProperties(response.data.properties);
+        setPagination(prev => ({
+          ...prev,
+          total: response.data.pagination.total,
+          pages: response.data.pagination.pages,
+        }));
+      } catch (error) {
+        console.error('Error fetching properties:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchProperties();
-  }, [searchParams, pagination.page]);
-
-  const fetchProperties = async () => {
-    setLoading(true);
-    try {
-      const params = new URLSearchParams();
-      if (filters.search) params.set('search', filters.search);
-      if (filters.listingType) params.set('listingType', filters.listingType);
-      if (filters.minPrice) params.set('minPrice', filters.minPrice);
-      if (filters.maxPrice) params.set('maxPrice', filters.maxPrice);
-      if (filters.bedrooms) params.set('bedrooms', filters.bedrooms);
-      if (filters.bathrooms) params.set('bathrooms', filters.bathrooms);
-      if (filters.region) params.set('region', filters.region);
-      params.set('page', pagination.page);
-      params.set('limit', '12');
-
-      const response = await api.get(`/properties?${params.toString()}`);
-      setProperties(response.data.properties);
-      setPagination(response.data.pagination);
-    } catch (error) {
-      console.error('Error fetching properties:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [searchParams, pagination.page, filters]);
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }));

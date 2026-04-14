@@ -28,19 +28,19 @@ const HotelDetail = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
+    const fetchHotel = async () => {
+      setLoading(true);
+      try {
+        const response = await api.get(`/hotels/${id}`);
+        setHotel(response.data.hotel);
+      } catch (error) {
+        console.error('Error fetching hotel:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchHotel();
   }, [id]);
-
-  const fetchHotel = async () => {
-    try {
-      const response = await api.get(`/hotels/${id}`);
-      setHotel(response.data.hotel);
-    } catch (error) {
-      console.error('Error fetching hotel:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-PH', {

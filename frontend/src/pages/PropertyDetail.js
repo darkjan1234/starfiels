@@ -16,28 +16,26 @@ L.Icon.Default.mergeOptions({
 
 const PropertyDetail = () => {
   const { id } = useParams();
-  const { user, isAuthenticated } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [showContactModal, setShowContactModal] = useState(false);
 
   useEffect(() => {
+    const fetchProperty = async () => {
+      try {
+        const response = await api.get(`/properties/${id}`);
+        setProperty(response.data.property);
+        setIsFavorite(response.data.property.isFavorited);
+      } catch (error) {
+        console.error('Error fetching property:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchProperty();
-  }, [id]);
-
-  const fetchProperty = async () => {
-    try {
-      const response = await api.get(`/properties/${id}`);
-      setProperty(response.data.property);
-      setIsFavorite(response.data.property.isFavorited);
-    } catch (error) {
-      console.error('Error fetching property:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [id, isAuthenticated]);
 
   const toggleFavorite = async () => {
     if (!isAuthenticated) return;
