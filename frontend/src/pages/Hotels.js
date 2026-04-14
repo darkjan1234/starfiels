@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../store/authStore';
-import { MapPin, Star, Search, Filter, Loader, Calendar, Users, ChevronRight, Home } from 'lucide-react';
+import { MapPin, Star, Search, Filter, Loader, Calendar, ChevronRight, Home } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Building2, Calendar, DollarSign, TrendingUp, Settings } from 'lucide-react';
+import { Users, Building2, Calendar, DollarSign, Settings } from 'lucide-react';
 
 const AdminDashboard = () => {
   const stats = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plane, Map, Calendar } from 'lucide-react';
+import { Plane } from 'lucide-react';
 
 const Travel = () => {
   return (

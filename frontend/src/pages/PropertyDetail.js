@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { api } from '../store/authStore';
 import { useAuthStore } from '../store/authStore';
-import { MapPin, Bed, Bath, Square, Heart, Share, Phone, Mail, Calendar, Loader, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Bed, Bath, Square, Heart, Share, Phone, Mail, Loader, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 

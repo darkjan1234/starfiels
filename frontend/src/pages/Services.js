@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, FileText, Hammer, Scale, Calculator } from 'lucide-react';
+import { FileText, Hammer, Scale, Calculator } from 'lucide-react';
 
 const Services = () => {
   const services = [

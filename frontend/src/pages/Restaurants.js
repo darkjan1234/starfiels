@@ -1,5 +1,5 @@
 import React from 'react';
-import { Utensils, MapPin, Star, Clock, Phone } from 'lucide-react';
+import { Utensils } from 'lucide-react';
 
 const Restaurants = () => {
   return (

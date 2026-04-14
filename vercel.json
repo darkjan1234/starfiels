@@ -2,7 +2,6 @@
   "version": 2,
   "name": "starfields-frontend",
   "framework": "create-react-app",
-
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "installCommand": "npm install",

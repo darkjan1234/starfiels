@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { api } from '../store/authStore';
-import { MapPin, Bed, Bath, Square, Heart, Search, Filter, Grid, List, Loader, ChevronRight, Home } from 'lucide-react';
+import { MapPin, Bed, Bath, Square, Search, Filter, Grid, List, Loader, ChevronRight, Home } from 'lucide-react';
 
 const RealEstate = () => {
   const [searchParams, setSearchParams] = useSearchParams();

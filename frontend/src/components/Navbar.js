@@ -13,8 +13,7 @@ import {
   User,
   LogOut,
   Heart,
-  LayoutDashboard,
-  Sparkles
+  LayoutDashboard
 } from 'lucide-react';
 
 const Navbar = () => {

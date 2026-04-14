@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
-import { User, Mail, Phone, MapPin, Building, Briefcase, Save, Loader } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Building, Save, Loader } from 'lucide-react';
 
 const Profile = () => {
   const { user, updateProfile, isLoading } = useAuthStore();

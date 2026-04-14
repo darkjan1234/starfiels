@@ -113,14 +113,16 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { icon: Facebook, label: 'Facebook' },
-                { icon: Instagram, label: 'Instagram' },
-                { icon: Twitter, label: 'Twitter' },
-                { icon: Youtube, label: 'Youtube' },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
+                { icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
+                { icon: Twitter, label: 'Twitter', url: 'https://twitter.com' },
+                { icon: Youtube, label: 'Youtube', url: 'https://youtube.com' },
+              ].map(({ icon: Icon, label, url }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600 transition-all duration-300 hover:scale-110"
                   aria-label={label}
                 >
